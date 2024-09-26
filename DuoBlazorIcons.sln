@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoBlazorIcons.Showcase", "DuoBlazorIcons.Showcase\DuoBlazorIcons.Showcase.csproj", "{43C8BE32-CA01-4797-8500-E310BC2A3EA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +29,9 @@ Global
 		{9EA2F9D6-238E-4353-B32E-8D75F740E6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EA2F9D6-238E-4353-B32E-8D75F740E6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EA2F9D6-238E-4353-B32E-8D75F740E6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C8BE32-CA01-4797-8500-E310BC2A3EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C8BE32-CA01-4797-8500-E310BC2A3EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C8BE32-CA01-4797-8500-E310BC2A3EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C8BE32-CA01-4797-8500-E310BC2A3EA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

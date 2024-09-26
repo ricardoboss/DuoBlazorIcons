@@ -1,0 +1,45 @@
+﻿@page "/"
+@using DuoBlazorIcons.Components
+
+@code {
+
+	private string Color { get; set; } = "#6366f1";
+
+	private decimal SizePx { get; set; } = 64;
+
+}
+
+<PageTitle>Duo Blazor Icons Showcase</PageTitle>
+
+<h1>Duo Blazor Icons Showcase</h1>
+
+<div style="border: solid 1px #8883; border-radius: 0.5rem; padding: 0.5rem; display: grid; align-items: center; gap: 0.5rem; grid-template-columns: 50px 200px 50px; margin: 0 auto 1rem auto;">
+	<label for="color">Color:</label>
+	<input id="color" type="color" @bind="Color" @bind:event="oninput"/>
+	<div>@Color</div>
+
+	<label for="size">Size:</label>
+	<input id="size" type="range" min="16" max="128" step="16" @bind="SizePx" @bind:event="oninput"/>
+	<div>@(SizePx)px</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; color: @Color;">
+	@foreach (var icon in Enum.GetValues<IconName>())
+	{
+		<div style="flex: 1 0 auto; width: calc(@(SizePx)px + 1rem); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+			<Icon Name="@icon" style="@("font-size: " + SizePx + "px;")"/>
+
+			<small>
+				<code>@icon</code>
+			</small>
+		</div>
+	}
+</div>
+
+<hr/>
+
+<p>
+	Copyright &copy; 2024 Ricardo Boss<br />
+	Licensed under the <a href="https://github.com/ricardoboss/DuoBlazorIcons/blob/main/LICENSE.md">MIT License</a><br />
+	Icons by <a href="https://github.com/fazdiu/duo-icons">fazdiu/duo-icons</a>, licensed under the <a href="https://github.com/fazdiu/duo-icons/blob/master/LICENSE">MIT License</a>
+</p>
