@@ -6,7 +6,7 @@ using DuoBlazorIcons.Generator;
 var iconDirectory = Path.Combine(AppContext.BaseDirectory, "icons");
 Debug.Assert(Directory.Exists(iconDirectory), "icons directory does not exist at expected location");
 
-var outputProjectDirectory = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DuoBlazorIcons");
+var outputProjectDirectory = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DuoBlazorIcons"));
 var componentsOutputDirectory = Path.Combine(outputProjectDirectory, "Components");
 Directory.CreateDirectory(componentsOutputDirectory);
 var generatedIconOutputDirectory = Path.Combine(componentsOutputDirectory, "Icons");

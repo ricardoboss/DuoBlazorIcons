@@ -6,6 +6,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<CoreCompileDependsOn>GenerateIcons;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+	</PropertyGroup>
+
+	<Target Name="GenerateIcons">
+		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
+	</Target>
+
 	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
 		<Title>Duo Blazor Icons</Title>
 		<Description>Duo Blazor Icons is a set of multi-tone icons for Blazor.</Description>
@@ -43,10 +51,6 @@
 		<PropertyGroup>
 			<PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
 		</PropertyGroup>
-	</Target>
-
-	<Target Name="GenerateIcons" BeforeTargets="BeforeBuild">
-		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
 	</Target>
 
 	<ItemGroup Condition="'$(Configuration)' == 'Release'">
