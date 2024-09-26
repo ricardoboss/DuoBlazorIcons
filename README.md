@@ -30,6 +30,8 @@ Or you can use the icon component directly:
 
 ## Development
 
+Then icon components and the `IconName` enum are not versioned by git since they are purely generated code.
+
 To generate/update the icon components, you need to run the `DuoBlazorIcons.Generator` project:
 
 ```shell
