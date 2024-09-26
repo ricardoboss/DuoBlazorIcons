@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+* No functional changes
+* Automatically create and upload debug symbols for the NuGet package
+
 ## 1.0.1
 
 * No functional changes; release workflow test
