@@ -38,7 +38,7 @@ public abstract class BaseIcon : ComponentBase
 				attributes["class"] = $"{iconClassName} {attributes["class"]}";
 			}
 
-			attributes["viewbox"] = "0 0 24 24";
+			attributes["viewBox"] = "0 0 24 24";
 			attributes["xmlns"] = "http://www.w3.org/2000/svg";
 
 			return attributes;
