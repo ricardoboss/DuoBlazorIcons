@@ -6,19 +6,17 @@
 	[Parameter(CaptureUnmatchedValues = true)]
 	public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
-	private BaseIcon IconComponent
+	private RenderFragment IconComponent => builder =>
 	{
-		get
+		builder.OpenComponent(0, Name.GetComponent().GetType());
+
+		foreach (var attribute in AdditionalAttributes ?? [])
 		{
-			var component = Name.GetComponent();
-
-#pragma warning disable BL0005 // Component parameter should not be set outside of its component
-			component.AdditionalAttributes = AdditionalAttributes;
-#pragma warning restore BL0005 // Component parameter should not be set outside of its component
-
-			return component;
+			builder.AddAttribute(1, attribute.Key, attribute.Value);
 		}
-	}
+
+		builder.CloseComponent();
+	};
 
 }
 
