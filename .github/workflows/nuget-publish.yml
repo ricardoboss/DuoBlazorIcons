@@ -8,7 +8,11 @@ on:
 jobs:
   publish:
     name: Publish NuGet Package
+
     environment: nuget.org
+
+    permissions:
+      contents: write
 
     runs-on: ubuntu-latest
 
@@ -22,3 +26,8 @@ jobs:
       run: dotnet build -c Release
     - name: Publish NuGet Package
       run: dotnet nuget push DuoBlazorIcons/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+    - name: Publish GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        generate_release_notes: true
+        make_latest: true
