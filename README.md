@@ -27,3 +27,28 @@ Or you can use the icon component directly:
 
 <IconAddCircle />
 ```
+
+## Development
+
+To generate/update the icon components, you need to run the `DuoBlazorIcons.Generator` project:
+
+```shell
+dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj
+```
+
+This will generate the `IconName` enum and the `Icon<icon name>` components.
+
+### Contributing
+
+Contributions are welcome! Please open an issue or a pull request if you have any suggestions or improvements.
+
+New icons should be added to [fazdiu/duo-icons](https://github.com/fazdiu/duo-icons) first, so open a PR there and then open a PR here to add the icon
+to the generator.
+
+## License
+
+Duo Blazor Icons is licensed under the [MIT License](LICENSE.md).
+
+### Attribution
+
+The icons are based on the [fazdiu/duo-icons](https://github.com/fazdiu/duo-icons) project licensed under the [MIT License](https://github.com/fazdiu/duo-icons/blob/master/LICENSE).
