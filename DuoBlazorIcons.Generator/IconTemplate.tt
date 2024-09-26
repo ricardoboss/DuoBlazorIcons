@@ -10,6 +10,7 @@
 -----------------------------------------------------------------------------
 *@
 @using DuoBlazorIcons.Components;
+@using System.Globalization;
 
 @inherits BaseIcon
 
@@ -19,7 +20,7 @@
     {
 #>
     <path
-        fill="currentColor"
+        fill="<#= GetFillExpression(path) #>"
         d="<#= path.PathData #>"
 <#
         if (path.ClassName is { } className)

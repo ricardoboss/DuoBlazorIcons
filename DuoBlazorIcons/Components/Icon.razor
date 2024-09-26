@@ -1,18 +1,23 @@
-﻿@code {
+﻿@inherits BaseIcon
+
+@code {
 
 	[Parameter]
 	public IconName Name { get; set; }
-
-	[Parameter(CaptureUnmatchedValues = true)]
-	public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
 	private RenderFragment IconComponent => builder =>
 	{
 		builder.OpenComponent(0, Name.GetComponentType());
 
+		if (PrimaryOpacity is not null)
+			builder.AddAttribute(1, nameof(PrimaryOpacity), PrimaryOpacity);
+
+		if (SecondaryOpacity is not null)
+			builder.AddAttribute(2, nameof(SecondaryOpacity), SecondaryOpacity);
+
 		foreach (var attribute in AdditionalAttributes ?? [])
 		{
-			builder.AddAttribute(1, attribute.Key, attribute.Value);
+			builder.AddAttribute(3, attribute.Key, attribute.Value);
 		}
 
 		builder.CloseComponent();

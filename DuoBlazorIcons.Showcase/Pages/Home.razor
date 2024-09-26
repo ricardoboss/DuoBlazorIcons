@@ -3,9 +3,24 @@
 
 @code {
 
-	private string Color { get; set; } = "#6366f1";
+	private string PrimaryColor { get; set; } = "#6366f1";
+
+	private bool DifferentColors { get; set; }
+
+	private string SecondaryColor { get; set; } = "#6366f1";
+
+	private string ActualSecondaryColor => DifferentColors ? SecondaryColor : PrimaryColor;
 
 	private decimal SizePx { get; set; } = 64;
+
+	private decimal PrimaryOpacity { get; set; } = 1;
+
+	private decimal SecondaryOpacity { get; set; } = 0.3m;
+
+	private void OnSwap()
+	{
+		(PrimaryColor, SecondaryColor) = (SecondaryColor, PrimaryColor);
+	}
 
 }
 
@@ -13,21 +28,48 @@
 
 <h1>Duo Blazor Icons Showcase</h1>
 
-<div style="position: sticky; inset: 1rem; background: white; border: solid 1px #8883; border-radius: 0.5rem; padding: 0.5rem; display: grid; align-items: center; gap: 0.5rem; grid-template-columns: 50px 200px 50px; margin: 0 auto 1rem auto;">
-	<label for="color">Color:</label>
-	<input id="color" type="color" @bind="Color" @bind:event="oninput"/>
-	<div>@Color</div>
+<div style="position: sticky; inset: 1rem; background: white; border: solid 1px #8883; border-radius: 0.5rem; padding: 0.5rem; display: grid; align-items: center; gap: 0.5rem; grid-template-columns: 150px 200px 50px; margin: 0 auto 1rem auto;">
+	<label for="primary-color">Primary Color:</label>
+	<input id="primary-color" type="color" @bind="PrimaryColor" @bind:event="oninput"/>
+	<div>@PrimaryColor</div>
+
+	<div>
+		<label for="different-colors">Different Colors:</label>
+		<input id="different-colors" type="checkbox" @bind="DifferentColors" @bind:event="oninput"/>
+	</div>
+	<div>
+		@if (DifferentColors)
+		{
+			<button @onclick="OnSwap">Swap</button>
+		}
+	</div>
+	<div></div>
+
+	@if (DifferentColors)
+	{
+		<label for="secondary-color">Secondary Color:</label>
+		<input id="secondary-color" type="color" @bind="SecondaryColor" @bind:event="oninput"/>
+		<div>@SecondaryColor</div>
+	}
 
 	<label for="size">Size:</label>
 	<input id="size" type="range" min="16" max="256" step="16" @bind="SizePx" @bind:event="oninput"/>
 	<div>@(SizePx)px</div>
+
+	<label for="primaryOpacity">Primary Opacity:</label>
+	<input id="primaryOpacity" type="range" min="0" max="1" step="0.01" @bind="PrimaryOpacity" @bind:event="oninput"/>
+	<div>@PrimaryOpacity</div>
+
+	<label for="secondaryOpacity">Secondary Opacity:</label>
+	<input id="secondaryOpacity" type="range" min="0" max="1" step="0.01" @bind="SecondaryOpacity" @bind:event="oninput"/>
+	<div>@SecondaryOpacity</div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; color: @Color;">
+<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; --duo-blazor-icon-primary-color: @(PrimaryColor); --duo-blazor-icon-primary-opacity: @(PrimaryOpacity); --duo-blazor-icon-secondary-color: @(ActualSecondaryColor); --duo-blazor-icon-secondary-opacity: @(SecondaryOpacity);">
 	@foreach (var icon in Enum.GetValues<IconName>())
 	{
 		<div style="flex: 1 0 auto; width: calc(@(SizePx)px + 1rem); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-			<Icon Name="@icon" style="@("font-size: " + SizePx + "px;")"/>
+			<Icon Name="@icon" style="@("font-size: " + SizePx + "px")"/>
 
 			<small>
 				<code>@icon</code>
