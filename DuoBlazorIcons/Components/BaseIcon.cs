@@ -8,7 +8,13 @@ public abstract class BaseIcon : ComponentBase
 	public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
 	[Parameter]
+	public string? PrimaryColor { get; set; }
+
+	[Parameter]
 	public decimal? PrimaryOpacity { get; set; }
+
+	[Parameter]
+	public string? SecondaryColor { get; set; }
 
 	[Parameter]
 	public decimal? SecondaryOpacity { get; set; }

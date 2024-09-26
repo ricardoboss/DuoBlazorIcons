@@ -4,6 +4,13 @@ public partial class IconTemplate(IconMetadata metadata)
 {
 	private static string GetFillExpression(SvgPath path)
 	{
+		var colorOverridePropertyName = path.Layer switch
+		{
+			PathLayer.Primary => "PrimaryColor",
+			PathLayer.Secondary => "SecondaryColor",
+			_ => null,
+		};
+
 		var cssPropertyName = path.Layer switch
 		{
 			PathLayer.Primary => "--duo-blazor-icon-primary-color",
@@ -11,7 +18,9 @@ public partial class IconTemplate(IconMetadata metadata)
 			_ => "--duo-blazor-icon-default-color",
 		};
 
-		return $"var({cssPropertyName}, currentColor)";
+		var cssVarExpression = $"var({cssPropertyName}, currentColor)";
+
+		return $"@({colorOverridePropertyName} ?? \"{cssVarExpression}\")";
 	}
 
 	private static string GetOpacityExpression(SvgPath path)
