@@ -98,7 +98,7 @@ static IconMetadata PreprocessMetadata(IconMetadata metadata)
 
 static IEnumerable<SvgPath> PreprocessPaths(IEnumerable<SvgPath> paths)
 {
-	foreach (var path in paths)
+	foreach (var path in paths.OrderByDescending(path => path.Layer)) // primary layer drawn on top (last)
 	{
 		var (pathData, layer, className, opacity) = path;
 

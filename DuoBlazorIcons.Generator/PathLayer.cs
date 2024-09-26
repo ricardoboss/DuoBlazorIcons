@@ -2,6 +2,6 @@ namespace DuoBlazorIcons.Generator;
 
 public enum PathLayer
 {
-	Primary,
-	Secondary,
+	Primary = 1,
+	Secondary = 2,
 }
