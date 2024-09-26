@@ -2,6 +2,8 @@
 
 Duo Blazor Icons is a set of multi-tone icons for Blazor.
 
+![Full Icon Set](https://raw.githubusercontent.com/ricardoboss/DuoBlazorIcons/main/.github/assets/full-icon-set.png)
+
 ## Installation
 
 Install the package from NuGet:
