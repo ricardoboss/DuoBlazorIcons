@@ -39,6 +39,7 @@ foreach (var iconFile in iconFiles)
 	var outputFile = Path.Combine(generatedIconOutputDirectory, $"{componentName}.razor");
 
 	File.WriteAllText(outputFile, code);
+	Console.WriteLine($"Emitted {outputFile}");
 }
 
 Console.WriteLine("Generating icon name enum...");
@@ -46,6 +47,8 @@ Console.WriteLine("Generating icon name enum...");
 var enumCode = GenerateEnumCode(knownIcons);
 var enumOutputFile = Path.Combine(componentsOutputDirectory, "IconName.cs");
 File.WriteAllText(enumOutputFile, enumCode);
+
+Console.WriteLine($"Emitted {enumOutputFile}");
 
 Console.WriteLine("Done.");
 
