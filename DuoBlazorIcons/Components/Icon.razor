@@ -12,7 +12,9 @@
 		{
 			var component = Name.GetComponent();
 
+#pragma warning disable BL0005 // Component parameter should not be set outside of its component
 			component.AdditionalAttributes = AdditionalAttributes;
+#pragma warning restore BL0005 // Component parameter should not be set outside of its component
 
 			return component;
 		}
