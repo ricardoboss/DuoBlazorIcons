@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PublishAot>true</PublishAot>
+		<InvariantGlobalization>true</InvariantGlobalization>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Update="IconTemplate.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>IconTemplate.tt</DependentUpon>
+		</Compile>
+		<Compile Update="IconTemplate.Code.cs">
+			<DependentUpon>IconTemplate.tt</DependentUpon>
+		</Compile>
+		<Compile Update="IconNameEnumTemplate.Code.cs">
+			<DependentUpon>IconNameEnumTemplate.tt</DependentUpon>
+		</Compile>
+		<Compile Update="IconNameEnumTemplate.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>IconNameEnumTemplate.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="IconTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>IconTemplate.cs</LastGenOutput>
+		</None>
+		<None Update="IconNameEnumTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>IconNameEnumTemplate.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="icons/*.svg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0" Version="17.0.32112.339"/>
+		<PackageReference Include="System.CodeDom" Version="8.0.0"/>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿@code {
+
+	[Parameter]
+	public IconName Name { get; set; }
+
+	[Parameter(CaptureUnmatchedValues = true)]
+	public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+	private BaseIcon IconComponent
+	{
+		get
+		{
+			var component = Name.GetComponent();
+
+			component.AdditionalAttributes = AdditionalAttributes;
+
+			return component;
+		}
+	}
+
+}
+
+@IconComponent

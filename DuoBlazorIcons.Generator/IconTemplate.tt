@@ -1,0 +1,24 @@
+<#@ template language="C#" hostspecific="true" #>
+@using DuoBlazorIcons.Components;
+
+@inherits BaseIcon
+
+<svg width="1em" height="1em" viewBox="0 0 24 24" @attributes="RootElementAttributes" xmlns="http://www.w3.org/2000/svg">
+<#
+    foreach (var path in metadata.Paths)
+    {
+#>
+    <path
+        fill="currentColor"
+        d="<#= path.PathData #>"
+<# if (path.ClassName is { } className) { #>
+        class="<#= className #>"
+<# } #>
+<# if (path.Opacity is { } opacity) { #>
+        opacity="<#= opacity #>"
+<# } #>
+    />
+<#
+    }
+#>
+</svg>

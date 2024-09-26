@@ -1,0 +1,46 @@
+<#@ template language="C#" hostspecific="true" #>
+using DuoBlazorIcons.Components.Icons;
+
+namespace DuoBlazorIcons.Components;
+
+public enum IconName
+{
+<#
+    foreach (var metadata in IconMetadata)
+    {
+#>
+    /// <summary>
+    /// Icon <#= metadata.FileName #>
+    /// </summary>
+    <#= metadata.EnumCaseName #>,
+<#
+    }
+#>
+}
+
+/// <summary>
+/// Extension methods for <see cref="IconName"/>
+/// </summary>
+public static class IconNameExtensions
+{
+    /// <summary>
+    /// Get the razor component (inheritor of <see cref="BaseIcon"/>) for the given <see cref="IconName"/>.
+    /// </summary>
+    /// <param name="iconName">The icon name</param>
+    /// <returns>The icon component</returns>
+    public static BaseIcon GetComponent(this IconName iconName)
+    {
+        return iconName switch
+        {
+<#
+    foreach (var metadata in IconMetadata)
+    {
+#>
+            IconName.<#= metadata.EnumCaseName #> => new <#= metadata.ComponentName #>(),
+<#
+    }
+#>
+            _ => throw new ArgumentOutOfRangeException(nameof(iconName), iconName, $"Unknown icon name: {iconName}"),
+        };
+    }
+}
