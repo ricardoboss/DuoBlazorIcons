@@ -30,6 +30,21 @@ Or you can use the icon component directly:
 <IconAddCircle />
 ```
 
+Additionally, if you want the icons to be aligned with text, add the following stylesheet to your `index.html`:
+
+```html
+<link href="_content/DuoBlazorIcons/duo-blazor-icons.css" rel="stylesheet" />
+```
+
+...or this small snippet of CSS:
+
+```css
+.duo-blazor-icon {
+    position: relative;
+    top: 0.1em;
+}
+```
+
 ## Development
 
 Then icon components and the `IconName` enum are not versioned by git since they are purely generated code.
