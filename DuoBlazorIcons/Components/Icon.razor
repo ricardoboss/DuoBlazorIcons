@@ -8,7 +8,7 @@
 
 	private RenderFragment IconComponent => builder =>
 	{
-		builder.OpenComponent(0, Name.GetComponent().GetType());
+		builder.OpenComponent(0, Name.GetComponentType());
 
 		foreach (var attribute in AdditionalAttributes ?? [])
 		{

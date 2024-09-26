@@ -58,7 +58,7 @@ namespace DuoBlazorIcons.Generator
             
             #line default
             #line hidden
-            this.Write("}\r\n\r\n/// <summary>\r\n/// Extension methods for <see cref=\"IconName\"/>\r\n/// </summary>\r\npublic static class IconNameExtensions\r\n{\r\n    /// <summary>\r\n    /// Get the razor component (inheritor of <see cref=\"BaseIcon\"/>) for the given <see cref=\"IconName\"/>.\r\n    /// </summary>\r\n    /// <param name=\"iconName\">The icon name</param>\r\n    /// <returns>The icon component</returns>\r\n    public static BaseIcon GetComponent(this IconName iconName)\r\n    {\r\n        return iconName switch\r\n        {\r\n");
+            this.Write("}\r\n\r\n/// <summary>\r\n/// Extension methods for <see cref=\"IconName\"/>\r\n/// </summary>\r\npublic static class IconNameExtensions\r\n{\r\n    /// <summary>\r\n    /// Get the razor component type for the given <see cref=\"IconName\"/>.\r\n    /// </summary>\r\n    /// <param name=\"iconName\">The icon name</param>\r\n    /// <returns>The icon component type</returns>\r\n    public static Type GetComponentType(this IconName iconName)\r\n    {\r\n        return iconName switch\r\n        {\r\n");
             
             #line 35 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconNameEnumTemplate.tt"
 
@@ -75,14 +75,14 @@ namespace DuoBlazorIcons.Generator
             
             #line default
             #line hidden
-            this.Write(" => new ");
+            this.Write(" => typeof(");
             
             #line 39 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconNameEnumTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(metadata.ComponentName));
             
             #line default
             #line hidden
-            this.Write("(),\r\n");
+            this.Write("),\r\n");
             
             #line 40 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconNameEnumTemplate.tt"
 

@@ -24,11 +24,11 @@ public enum IconName
 public static class IconNameExtensions
 {
     /// <summary>
-    /// Get the razor component (inheritor of <see cref="BaseIcon"/>) for the given <see cref="IconName"/>.
+    /// Get the razor component type for the given <see cref="IconName"/>.
     /// </summary>
     /// <param name="iconName">The icon name</param>
-    /// <returns>The icon component</returns>
-    public static BaseIcon GetComponent(this IconName iconName)
+    /// <returns>The icon component type</returns>
+    public static Type GetComponentType(this IconName iconName)
     {
         return iconName switch
         {
@@ -36,7 +36,7 @@ public static class IconNameExtensions
     foreach (var metadata in IconMetadata)
     {
 #>
-            IconName.<#= metadata.EnumCaseName #> => new <#= metadata.ComponentName #>(),
+            IconName.<#= metadata.EnumCaseName #> => typeof(<#= metadata.ComponentName #>),
 <#
     }
 #>
