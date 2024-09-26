@@ -8,14 +8,15 @@
 
 	<PropertyGroup>
 		<CoreCompileDependsOn>GenerateIcons;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+		<NoWarn>CS2002</NoWarn><!-- Source file specified multiple times -->
 	</PropertyGroup>
 
 	<Target Name="GenerateIcons">
 		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
 
 		<ItemGroup>
-			<RazorComponent Update="Components/Icons/*.razor" KeepDuplicates="false" />
-			<Compile Update="Components/IconName.cs" KeepDuplicates="false" />
+			<RazorComponent Include="Components/Icons/*.razor" KeepDuplicates="false" />
+			<Compile Include="Components/IconName.cs" KeepDuplicates="false" />
 		</ItemGroup>
 	</Target>
 
