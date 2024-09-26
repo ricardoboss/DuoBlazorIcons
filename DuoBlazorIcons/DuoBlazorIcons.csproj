@@ -29,7 +29,7 @@
 		<Description>Duo Blazor Icons is a set of multi-tone icons for Blazor.</Description>
 		<PackageTags>blazor;icons;dual-tone;duo-icons;multi-tone;svg;vector</PackageTags>
 
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 
 		<Authors>Ricardo Boss, fernandcf</Authors>
 		<Copyright>Copyright (c) 2024 Ricardo Boss</Copyright>
