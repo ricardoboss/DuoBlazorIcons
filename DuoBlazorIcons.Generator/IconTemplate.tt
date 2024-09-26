@@ -21,12 +21,15 @@
     <path
         fill="currentColor"
         d="<#= path.PathData #>"
-<# if (path.ClassName is { } className) { #>
+<#
+        if (path.ClassName is { } className)
+        {
+#>
         class="<#= className #>"
-<# } #>
-<# if (path.Opacity is { } opacity) { #>
-        opacity="<#= opacity #>"
-<# } #>
+<#
+        }
+#>
+        opacity="<#= GetOpacityExpression(path) #>"
     />
 <#
     }

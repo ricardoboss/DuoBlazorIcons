@@ -84,7 +84,7 @@ static IEnumerable<SvgPath> GetSvgPaths(string svgFile)
 			_ => null,
 		};
 
-		yield return new(pathData, layer, className, opacity);
+		yield return new(pathData, layer, null, opacity);
 	}
 }
 

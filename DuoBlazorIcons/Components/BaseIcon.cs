@@ -7,6 +7,12 @@ public abstract class BaseIcon : ComponentBase
 	[Parameter(CaptureUnmatchedValues = true)]
 	public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
+	[Parameter]
+	public decimal? PrimaryOpacity { get; set; }
+
+	[Parameter]
+	public decimal? SecondaryOpacity { get; set; }
+
 	protected Dictionary<string, object> RootElementAttributes
 	{
 		get

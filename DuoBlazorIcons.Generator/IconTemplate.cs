@@ -45,47 +45,39 @@ namespace DuoBlazorIcons.Generator
             this.Write("\"\r\n");
             
             #line 24 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
- if (path.ClassName is { } className) { 
+
+        if (path.ClassName is { } className)
+        {
+
             
             #line default
             #line hidden
             this.Write("        class=\"");
             
-            #line 25 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
+            #line 28 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write("\"\r\n");
             
-            #line 26 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
- } 
-            
-            #line default
-            #line hidden
-            
-            #line 27 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
- if (path.Opacity is { } opacity) { 
+            #line 29 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
+
+        }
+
             
             #line default
             #line hidden
             this.Write("        opacity=\"");
             
-            #line 28 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(opacity));
+            #line 32 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetOpacityExpression(path)));
             
             #line default
             #line hidden
-            this.Write("\"\r\n");
+            this.Write("\"\r\n    />\r\n");
             
-            #line 29 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("    />\r\n");
-            
-            #line 31 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
+            #line 34 "D:\repos\ricardoboss\DuoBlazorIcons\DuoBlazorIcons.Generator\IconTemplate.tt"
 
     }
 
