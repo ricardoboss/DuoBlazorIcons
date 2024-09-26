@@ -12,6 +12,16 @@
 
 	<Target Name="GenerateIcons">
 		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
+
+		<ItemGroup>
+			<RazorComponent Update="Components/Icons/*.razor" KeepDuplicates="false" />
+			<Compile Update="Components/IconName.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="CleanIcons" BeforeTargets="Clean">
+		<Delete Files="Components/Icons/*.razor" />
+		<Delete Files="Components/IconName.cs" />
 	</Target>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
