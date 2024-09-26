@@ -13,13 +13,13 @@
 
 <h1>Duo Blazor Icons Showcase</h1>
 
-<div style="border: solid 1px #8883; border-radius: 0.5rem; padding: 0.5rem; display: grid; align-items: center; gap: 0.5rem; grid-template-columns: 50px 200px 50px; margin: 0 auto 1rem auto;">
+<div style="position: sticky; inset: 1rem; background: white; border: solid 1px #8883; border-radius: 0.5rem; padding: 0.5rem; display: grid; align-items: center; gap: 0.5rem; grid-template-columns: 50px 200px 50px; margin: 0 auto 1rem auto;">
 	<label for="color">Color:</label>
 	<input id="color" type="color" @bind="Color" @bind:event="oninput"/>
 	<div>@Color</div>
 
 	<label for="size">Size:</label>
-	<input id="size" type="range" min="16" max="128" step="16" @bind="SizePx" @bind:event="oninput"/>
+	<input id="size" type="range" min="16" max="256" step="16" @bind="SizePx" @bind:event="oninput"/>
 	<div>@(SizePx)px</div>
 </div>
 
