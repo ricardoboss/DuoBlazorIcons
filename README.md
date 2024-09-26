@@ -1,4 +1,7 @@
 [![.NET](https://github.com/ricardoboss/DuoBlazorIcons/actions/workflows/dotnet.yml/badge.svg)](https://github.com/ricardoboss/DuoBlazorIcons/actions/workflows/dotnet.yml)
+![GitHub License](https://img.shields.io/github/license/ricardoboss/DuoBlazorIcons)
+![NuGet Version](https://img.shields.io/nuget/v/DuoBlazorIcons)
+![NuGet Downloads](https://img.shields.io/nuget/dt/DuoBlazorIcons)
 
 # DuoBlazorIcons
 

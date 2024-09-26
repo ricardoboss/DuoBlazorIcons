@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Added more badges to the README
+
 ## 1.0.2
 
 * No functional changes
