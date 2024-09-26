@@ -8,17 +8,41 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
-		<RepositoryUrl>https://github.com/ricardoboss/DuoBlazorIcons</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/ricardoboss/DuoBlazorIcons</PackageProjectUrl>
+		<Title>Duo Blazor Icons</Title>
+		<Description>Duo Blazor Icons is a set of multi-tone icons for Blazor.</Description>
+		<PackageTags>blazor;icons;dual-tone;duo-icons;multi-tone;svg;vector</PackageTags>
+
+		<Version>1.0.0</Version>
+
 		<Authors>Ricardo Boss, fernandcf</Authors>
 		<Copyright>Copyright (c) 2024 Ricardo Boss</Copyright>
-		<PackageTags>blazor;icons;dual-tone;duo-icons;multi-tone;svg;vector</PackageTags>
-		<Description>Duo Blazor Icons is a set of multi-tone icons for Blazor.</Description>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/ricardoboss/DuoBlazorIcons</PackageProjectUrl>
+
+		<RepositoryUrl>https://github.com/ricardoboss/DuoBlazorIcons</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<!-- needed for Source Link -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+		<ReadLinesFromFile File="../CHANGELOG.md">
+			<Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+		</ReadLinesFromFile>
+		<PropertyGroup>
+			<PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+		</PropertyGroup>
+	</Target>
 
 	<ItemGroup Condition="'$(Configuration)' == 'Release'">
 		<None Include="..\LICENSE.md" Pack="true" PackagePath="\"/>
