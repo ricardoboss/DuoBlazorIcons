@@ -42,8 +42,6 @@
 		<!-- needed for Source Link -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>embedded</DebugType>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
