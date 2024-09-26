@@ -1,10 +1,12 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Xml;
 using DuoBlazorIcons.Generator;
 
-var iconDirectory = Path.Combine(Directory.GetCurrentDirectory(), "icons");
+var iconDirectory = Path.Combine(AppContext.BaseDirectory, "icons");
+Debug.Assert(Directory.Exists(iconDirectory), "icons directory does not exist at expected location");
 
-var outputProjectDirectory = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..", "DuoBlazorIcons");
+var outputProjectDirectory = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DuoBlazorIcons");
 var componentsOutputDirectory = Path.Combine(outputProjectDirectory, "Components");
 Directory.CreateDirectory(componentsOutputDirectory);
 var generatedIconOutputDirectory = Path.Combine(componentsOutputDirectory, "Icons");
@@ -17,7 +19,7 @@ foreach (var iconFile in iconFiles)
 	var iconName = GetIconName(iconFile);
 	var componentName = $"Icon{iconName}";
 
-	Console.WriteLine($"Processing {iconName}");
+	Console.WriteLine($"Processing icon file {iconFile}");
 
 	var paths = GetSvgPaths(iconFile).ToList();
 
@@ -39,11 +41,13 @@ foreach (var iconFile in iconFiles)
 	File.WriteAllText(outputFile, code);
 }
 
-Console.WriteLine("Generating icon name enum");
+Console.WriteLine("Generating icon name enum...");
 
 var enumCode = GenerateEnumCode(knownIcons);
 var enumOutputFile = Path.Combine(componentsOutputDirectory, "IconName.cs");
 File.WriteAllText(enumOutputFile, enumCode);
+
+Console.WriteLine("Done.");
 
 return;
 

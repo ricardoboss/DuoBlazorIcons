@@ -45,6 +45,10 @@
 		</PropertyGroup>
 	</Target>
 
+	<Target Name="GenerateIcons" BeforeTargets="BeforeBuild">
+		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
+	</Target>
+
 	<ItemGroup Condition="'$(Configuration)' == 'Release'">
 		<None Include="..\LICENSE.md" Pack="true" PackagePath="\"/>
 		<None Include="..\README.md" Pack="true" PackagePath="\"/>

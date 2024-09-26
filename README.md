@@ -34,7 +34,9 @@ Or you can use the icon component directly:
 
 Then icon components and the `IconName` enum are not versioned by git since they are purely generated code.
 
-To generate/update the icon components, you need to run the `DuoBlazorIcons.Generator` project:
+They will be generated when building the `DuoBlazorIcons` project using MSBuild.
+
+To generate/update the icon components separately, you need to run the `DuoBlazorIcons.Generator` project:
 
 ```shell
 dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj
