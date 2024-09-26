@@ -1,3 +1,5 @@
+[![.NET](https://github.com/ricardoboss/DuoBlazorIcons/actions/workflows/dotnet.yml/badge.svg)](https://github.com/ricardoboss/DuoBlazorIcons/actions/workflows/dotnet.yml)
+
 # DuoBlazorIcons
 
 Duo Blazor Icons is a set of multi-tone icons for Blazor.
