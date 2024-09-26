@@ -39,6 +39,8 @@ foreach (var iconFile in iconFiles)
 	File.WriteAllText(outputFile, code);
 }
 
+Console.WriteLine("Generating icon name enum");
+
 var enumCode = GenerateEnumCode(knownIcons);
 var enumOutputFile = Path.Combine(componentsOutputDirectory, "IconName.cs");
 File.WriteAllText(enumOutputFile, enumCode);
@@ -75,7 +77,14 @@ static IEnumerable<SvgPath> GetSvgPaths(string svgFile)
 		if (string.IsNullOrEmpty(pathData))
 			throw new InvalidOperationException($"Icon {svgFile} has a path with no path data");
 
-		yield return new(pathData, className, opacity);
+		PathLayer? layer = className switch
+		{
+			"duoicon-primary-layer" => PathLayer.Primary,
+			"duoicon-secondary-layer" => PathLayer.Secondary,
+			_ => null,
+		};
+
+		yield return new(pathData, layer, className, opacity);
 	}
 }
 
@@ -91,16 +100,16 @@ static IEnumerable<SvgPath> PreprocessPaths(IEnumerable<SvgPath> paths)
 {
 	foreach (var path in paths)
 	{
-		var (pathData, className, opacity) = path;
+		var (pathData, layer, className, opacity) = path;
 
-		var mappedClassName = className switch
+		var mappedClassName = layer switch
 		{
-			"duoicon-primary-layer" => "primary-layer",
-			"duoicon-secondary-layer" => "secondary-layer",
+			PathLayer.Primary => "primary-layer",
+			PathLayer.Secondary => "secondary-layer",
 			_ => className,
 		};
 
-		yield return new(pathData, mappedClassName, opacity);
+		yield return new(pathData, layer, mappedClassName, opacity);
 	}
 }
 
