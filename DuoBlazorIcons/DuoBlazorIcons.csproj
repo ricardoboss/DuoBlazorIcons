@@ -7,11 +7,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<CoreCompileDependsOn>GenerateIcons;$(CoreCompileDependsOn)</CoreCompileDependsOn>
 		<NoWarn>CS2002</NoWarn><!-- Source file specified multiple times -->
 	</PropertyGroup>
 
-	<Target Name="GenerateIcons">
+	<Target Name="GenerateIcons" BeforeTargets="BeforeResGen">
 		<Exec Command="dotnet run --project DuoBlazorIcons.Generator/DuoBlazorIcons.Generator.csproj" WorkingDirectory=".."/>
 
 		<ItemGroup>
