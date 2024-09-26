@@ -1,117 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<RepositoryUrl>https://github.com/ricardoboss/DuoBlazorIcons</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/ricardoboss/DuoBlazorIcons</PackageProjectUrl>
+		<Authors>Ricardo Boss, fernandcf</Authors>
+		<Copyright>Copyright (c) 2024 Ricardo Boss</Copyright>
+		<PackageTags>blazor;icons;dual-tone;duo-icons;multi-tone;svg;vector</PackageTags>
+		<Description>Duo Blazor Icons is a set of multi-tone icons for Blazor.</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <SupportedPlatform Include="browser"/>
-  </ItemGroup>
+	<ItemGroup>
+		<SupportedPlatform Include="browser"/>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\icons\add-circle.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\airplay.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\alert-octagon.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\alert-triangle.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\align-bottom.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\align-center.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\android.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\app-dots.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\app.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\apple.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\approved.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\appstore.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\award.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\baby-carriage.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bank.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\battery.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bell-badge.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bell.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\book-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\book-3.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\book.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bookmark.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\box-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\box.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bread.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bridge.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\briefcase.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\brush-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\brush.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bug.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\building.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\bus.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\cake.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\calendar.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\camera-square.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\camera.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\campground.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\candle.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\car.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\certificate.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\chart-pie.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\check-circle.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\chip.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\clapperboard.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\clipboard.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\clock.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\cloud-lightning.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\cloud-snow.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\coin-stack.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\compass.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\computer-camera-off.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\computer-camera.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\confetti.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\credit-card.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\currency-euro.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\dashboard.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\discount.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\disk.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\file.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\fire.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\folder-open.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\folder-upload.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\g-translate.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\id-card.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\info.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\lamp-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\lamp.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\LICENSE" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\location.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\marker.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\menu.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\message-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\message-3.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\message.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\moon-2.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\moon-stars.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\palette.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\rocket.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\settings.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\shopping-bag.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\slideshow.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\smartphone-vibration.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\smartphone.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\smartwatch.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\sun.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\target.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\toggle.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\translation.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\upload-file.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\user-card.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\user.svg" />
-    <_ContentIncludedByDefault Remove="wwwroot\icons\world.svg" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8"/>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>
