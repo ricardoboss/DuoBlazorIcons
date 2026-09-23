@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 		LICENSE.md = LICENSE.md
 		CHANGELOG.md = CHANGELOG.md
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoBlazorIcons.Showcase", "DuoBlazorIcons.Showcase\DuoBlazorIcons.Showcase.csproj", "{43C8BE32-CA01-4797-8500-E310BC2A3EA5}"
